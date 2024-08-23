@@ -1,0 +1,36 @@
+body{
+    /* background: linear-gradient(to top right,#93566e,#090909); */
+    background: url(back.jpeg);
+    /* background-repeat: no-repeat; */
+    /* background-size: cover; */
+}
+#posts-container {
+    display: flex;
+   justify-content: center; 
+   gap: 20px;
+} 
+.container .post{
+    width:48%;
+    padding: 10px;
+    /* background-color: #f3e7ec; */
+}
+body h1{
+    /* color: rgb(121, 75, 96); */
+    color :#090909;
+    text-shadow: 2px 5px 5px #d64354;
+}
+.post h2{
+    color: #302f2f;
+}
+.container .post:hover{
+    transform: translateX(8px);
+}
+.container .post{
+    transition: all 0.3s ease-in-out;
+}
+@media (max-width:1200px) {
+    .container .post {
+      width: 95%; 
+    }
+  }
+

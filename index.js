@@ -1,16 +1,18 @@
+
 fetch('https://jsonplaceholder.typicode.com/posts')
   .then(response => response.json())
-  .then(data => {
-    let rows = '';
-    data.forEach(post => {
-      rows += `
-      <div class="mb-4 p-3 bg-info bg-opacity-10 border border-info border rounded">
-         <h2 class="mb-4 display-5 text-center fs-2">${post.title}</h2>
-         <p class="text-secondary fst-italic mb-4 text-center lead fs-4">${post.body}</p>
-         </div>
+  .then(posts => {
+    const postsContainer = document.getElementById('posts-container');
+    posts.forEach(post => {
+      const postElement = document.createElement('div');
+      postElement.classList.add('post','col-md-6','mb-4','border', 'border-danger', 'rounded');
+      postElement.innerHTML = `
+       <div class=" text-center">
+         <h2 class="fs-3 mb-4">${post.title}</h2>
+         <p class="text-secondary fst-italic mb-4 lead fs-5">${post.body}</p>
+       </div>
 
-    `});
-    document.getElementById("posts").innerHTML = rows;
-    console.log(rows);
-  })
-  .catch(error => console.log(error));
+    `;
+    postsContainer.appendChild(postElement);
+  });
+});
